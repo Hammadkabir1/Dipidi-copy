@@ -512,6 +512,15 @@ with tab2:
     if not st.session_state.selected_groups:
         st.warning(" Please select groups from the sidebar to enable voice chat")
     else:
+        # Voice selection
+        voice_options = ["alloy", "echo", "shimmer", "ash", "ballad", "coral", "sage", "verse"]
+        selected_voice = st.selectbox(
+            "Select Agent Voice",
+            options=voice_options,
+            index=0,
+            help="Choose the voice for the AI assistant"
+        )
+
         group_context = f"You have access to group conversations from groups: {', '.join(st.session_state.selected_groups)}. "
         group_context += "When relevant, reference information from these group conversations to provide helpful responses."
         
@@ -531,7 +540,7 @@ Be natural, conversational, and concise in your responses. Keep answers brief un
                 conversation = realtime_audio_conversation(
                     api_key=openai_api_key,
                     instructions=instructions,
-                    voice="alloy",
+                    voice=selected_voice,
                     temperature=0.8,
                     turn_detection_threshold=0.5,
                     auto_start=True,
