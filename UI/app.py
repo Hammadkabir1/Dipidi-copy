@@ -513,7 +513,7 @@ with tab2:
         st.warning(" Please select groups from the sidebar to enable voice chat")
     else:
         # Voice selection
-        voice_options = ["alloy", "echo", "fable", "onyx", "nova", "shimmer"]
+        voice_options = ["alloy", "ash", "ballad", "coral", "echo", "sage", "shimmer", "verse", "marin", "cedar"]
         selected_voice = st.selectbox(
             "Select Agent Voice",
             options=voice_options,
